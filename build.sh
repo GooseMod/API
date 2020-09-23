@@ -21,4 +21,6 @@ git clone https://github.com/GooseMod/Modules clone
 node ../modulesJson/generate.mjs
 
 # Copy _headers
-cp ../_headers .
+cd ..
+
+cp _headers out/_headers
