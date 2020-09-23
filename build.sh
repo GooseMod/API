@@ -26,3 +26,6 @@ cd ..
 # Copy JSON
 cp build/modules.json out/modules.json
 cp -r build/clone/modules out/modules
+
+# Copy _headers file
+cp _headers out/_headers
