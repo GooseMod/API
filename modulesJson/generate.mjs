@@ -4,6 +4,7 @@ import glob from 'glob';
 
 import { minify } from 'terser';
 
+(async function() {
 const baseDir = 'clone/modules';
 const outDir = '../out/modules';
 
@@ -49,5 +50,4 @@ for (let path of modules) {
 }
 
 writeFileSync('../out/modules.json', JSON.stringify(jsons));
-
-//let content = readFileSync(`${baseDir}`, 'utf-8');
+})();
