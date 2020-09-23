@@ -9,6 +9,7 @@
   "author": "Ducko / GooseMod",
   "license": "GPL-3.0",
   "dependencies": {
-    "glob": "^7.1.6"
+    "glob": "^7.1.6",
+    "terser": "^5.3.2"
   }
 }

@@ -1,14 +1,19 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 
 import glob from 'glob';
 
+import { minify } from 'terser';
+
 const baseDir = 'clone/modules';
+const outDir = '../out/modules';
 
 const modules = glob.sync(`${baseDir}/***/*.js`);
 
 let jsons = [];
 
 for (let path of modules) {
+  console.log(path);
+
   const content = readFileSync(path, 'utf-8');
 
   const {name, author, description, version} = eval(content);
@@ -31,11 +36,18 @@ for (let path of modules) {
     version
   };
 
-  //const jsonPath = `../api/modules/${name}.json`;
-
   jsons.push(json);
+
+  let outPath = path.replace(baseDir, outDir);
+  let dir = outPath.split('/').slice(0, -1).join('/');
+
+  if (!existsSync(dir)) {
+    mkdirSync(dir, {recursive: true});
+  }
+
+  writeFileSync(outPath, (await minify(content)).code + content.split(';').pop().trim());
 }
 
-writeFileSync('modules.json', JSON.stringify(jsons));
+writeFileSync('../out/modules.json', JSON.stringify(jsons));
 
 //let content = readFileSync(`${baseDir}`, 'utf-8');

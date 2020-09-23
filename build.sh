@@ -17,15 +17,8 @@ cd ../build
 # Clone repo
 git clone https://github.com/GooseMod/Modules clone
 
-# Use Node script to generate JSON
+# Use Node script to generate JSON and copy over minified JS files
 node ../modulesJson/generate.mjs
 
-
-cd ..
-
-# Copy JSON
-cp build/modules.json out/modules.json
-cp -r build/clone/modules out/modules
-
-# Copy _headers file
-cp _headers out/_headers
+# Copy _headers
+cp ../_headers .
