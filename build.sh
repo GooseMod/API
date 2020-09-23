@@ -7,13 +7,19 @@ mkdir build
 rm -rf out
 mkdir out
 
-cd build
+# NPM install for Node script
+cd modulesJson
+npm install
+
+
+cd ../build
 
 # Clone repo
 git clone https://github.com/GooseMod/Modules clone
 
 # Use Node script to generate JSON
 node ../modulesJson/generate.mjs
+
 
 cd ..
 
