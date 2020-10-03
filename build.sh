@@ -7,6 +7,8 @@ mkdir build
 rm -rf out
 mkdir out
 
+mkdir out/untethered
+
 # NPM install for Node script
 cd modulesJson
 npm install
@@ -28,5 +30,6 @@ cp _headers out/_headers
 # Copy latest inject.js to out (for untethered)
 wget https://raw.githubusercontent.com/GooseMod/Injector/master/src/inject.js -O out/inject.js
 
-# Copy latest untetheredInject.js to out (for untethered)
-wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/untetheredInject.js -O out/untetheredInject.js
+# Copy latest untethered JS stuff to out (for untethered)
+wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/untetheredInject.js -O out/untethered/untetheredInject.js
+wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/base.js -O out/untethered/base.js
