@@ -24,3 +24,9 @@ node ../modulesJson/generate.mjs
 cd ..
 
 cp _headers out/_headers
+
+# Copy latest inject.js to out (for untethered)
+wget https://raw.githubusercontent.com/GooseMod/Injector/master/src/inject.js -O out/inject.js
+
+# Copy latest untetheredInject.js to out (for untethered)
+wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/untetheredInject.js -O out/untetheredInject.js
