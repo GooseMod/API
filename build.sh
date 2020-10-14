@@ -28,7 +28,7 @@ cd ..
 cp _headers out/_headers
 
 # Copy latest inject.js to out (for untethered)
-wget https://raw.githubusercontent.com/GooseMod/Injector/master/src/inject.js -O out/inject.js
+wget https://raw.githubusercontent.com/GooseMod/Injector/master/dist/index.js -O out/inject.js
 
 # Copy latest untethered JS stuff to out (for untethered)
 wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/untetheredInject.js -O out/untethered/untetheredInject.js
