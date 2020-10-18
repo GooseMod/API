@@ -4,6 +4,8 @@ import glob from 'glob';
 
 import { minify } from 'terser';
 
+import { createHash } from 'crypto';
+
 (async function() {
 const baseDir = 'clone/modules';
 const outDir = '../out/modules';
@@ -30,6 +32,8 @@ for (let path of modules) {
     filename,
     category,
     codeURL,
+
+    hash: createHash('sha512').update(content).digest('hex'),
 
     name,
     author,
