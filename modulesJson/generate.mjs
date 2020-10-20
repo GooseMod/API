@@ -19,7 +19,7 @@ for (let path of modules) {
 
   const content = readFileSync(path, 'utf-8');
 
-  const {name, author, description, version} = eval(content);
+  const { name, author, description, version } = eval(content);
 
   const split = path.split('/');
 
@@ -28,12 +28,23 @@ for (let path of modules) {
 
   const codeURL = `https://goosemod-api.netlify.app/modules/${category}/${filename}.js`;
 
+  const outPath = path.replace(baseDir, outDir);
+  const dir = outPath.split('/').slice(0, -1).join('/');
+
+  if (!existsSync(dir)) {
+    mkdirSync(dir, {recursive: true});
+  }
+
+  const minified = (await minify(content)).code + content.split(';').pop().trim();
+
+  writeFileSync(outPath, minified);
+
   const json = {
     filename,
     category,
     codeURL,
 
-    hash: createHash('sha512').update(content).digest('hex'),
+    hash: createHash('sha512').update(minified).digest('hex'),
 
     name,
     author,
@@ -42,15 +53,6 @@ for (let path of modules) {
   };
 
   jsons.push(json);
-
-  let outPath = path.replace(baseDir, outDir);
-  let dir = outPath.split('/').slice(0, -1).join('/');
-
-  if (!existsSync(dir)) {
-    mkdirSync(dir, {recursive: true});
-  }
-
-  writeFileSync(outPath, (await minify(content)).code + content.split(';').pop().trim());
 }
 
 writeFileSync('../out/modules.json', JSON.stringify(jsons));
