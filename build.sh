@@ -32,4 +32,4 @@ wget https://raw.githubusercontent.com/GooseMod/Injector/master/dist/index.js -O
 
 # Copy latest untethered JS stuff to out (for untethered)
 wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/untetheredInject.js -O out/untethered/untetheredInject.js
-wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/base.js -O out/untethered/base.js
+# wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/base.js -O out/untethered/base.js
