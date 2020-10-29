@@ -30,8 +30,12 @@ cp _headers out/_headers
 # Copy latest inject.js to out (for untethered)
 wget https://raw.githubusercontent.com/GooseMod/Injector/master/dist/index.js -O out/inject.js
 
-# Copy latest CHANGELOG.md to out
-wget https://raw.githubusercontent.com/GooseMod/Injector/master/CHANGELOG.md -O out/changelog.md
+# Copy latest changelog release into out generated via Node script
+cd changelog
+wget https://raw.githubusercontent.com/GooseMod/Injector/master/CHANGELOG.md -O changelog.md
+node generate.mjs
+
+cd ..
 
 # Copy latest untethered JS stuff to out (for untethered)
 wget https://raw.githubusercontent.com/GooseMod/Untethered/master/src/untetheredInject.js -O out/untethered/untetheredInject.js
