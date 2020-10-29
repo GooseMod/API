@@ -45,13 +45,16 @@ body = body.map((x, i) => {
 
     x = `${i !== 0 ? '\n' : ''}${x} {${type}${i === 0 ? ' marginTop' : ''}}\n======================\n`;
   } else {
-    const split = x.split(/[,.-]/);
+    const split = x.split(/,/);
 
     if (split.length === 1) {
       x = `* **${x}.**`;
     } else {
-      const main = split[0];
-      x = `* **${main.trim()}.** ${split.slice(1).trim()}.`;
+      const main = split[0].trim();
+      let sub = split.slice(1).join(', ').trim();
+      sub = sub[0].toUpperCase() + sub.substring(1);
+
+      x = `* **${main}.** ${sub}.`;
     }
   }
 
