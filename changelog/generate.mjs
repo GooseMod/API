@@ -9,7 +9,7 @@ let versionHeader = split[0];
 const headerSplit = versionHeader.split(' ');
 
 const version = headerSplit[0];
-const date = headerSplit[1].replace(/[[]]/g, '');
+const date = headerSplit[1].replace(/[\[\]]/g, '');
 
 let body = split.slice(2).map((x) => x.trim().replace('- ', ''));
 
