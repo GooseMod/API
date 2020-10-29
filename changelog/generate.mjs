@@ -43,7 +43,7 @@ body = body.map((x, i) => {
       }
     }
 
-    x = `${x} {${type}${i === 0 ? ' marginTop' : ''}}\n======================\n`;
+    x = `${i !== 0 ? '\n' : ''}${x} {${type}${i === 0 ? ' marginTop' : ''}}\n======================\n`;
   } else {
     const split = x.split(/[,.-]/);
 
@@ -51,7 +51,7 @@ body = body.map((x, i) => {
       x = `* **${x}.**`;
     } else {
       const main = split[0];
-      x = `* **${main.trim()}.** ${split.slice(1).trim()}`;
+      x = `* **${main.trim()}.** ${split.slice(1).trim()}.`;
     }
   }
 
