@@ -19,7 +19,15 @@ for (let path of modules) {
 
   const content = readFileSync(path, 'utf-8');
 
-  const { name, author, description, version } = eval(content);
+  const { name, author, description, version } = eval(`
+let goosemodScope = { // Placeholder for modules which try and access goosemodScope top-level
+  patcher: {
+    inject: () => {},
+    uninject: () => {}
+  }
+};
+
+${content}`);
 
   const split = path.split('/');
 
