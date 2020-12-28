@@ -24,6 +24,9 @@ let goosemodScope = { // Placeholder for modules which try and access goosemodSc
   patcher: {
     inject: () => {},
     uninject: () => {}
+  },
+  webpackModules: {
+    findByProps: () => {}
   }
 };
 
