@@ -27,18 +27,18 @@ body = body.map((x, i) => {
         break;
       }
       
-      /*case 'tweaks': {
+      case 'tweaks': {
         type = 'progress';
-        break;
-      }*/
-
-      case 'features': {
-        type = 'added';
         break;
       }
 
+      /*case 'features': {
+        type = 'added';
+        break;
+      }*/
+
       default: {
-        type = 'progress';
+        type = 'added'; // 'progress';
         break;
       }
     }
