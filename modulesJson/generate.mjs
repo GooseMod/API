@@ -17,6 +17,7 @@ let jsons = [];
 for (let path of modules) {
   console.log(path);
 
+  try {
   const content = readFileSync(path, 'utf-8');
 
   const { name, author, description, version } = eval(`
@@ -64,6 +65,9 @@ ${content}`);
   };
 
   jsons.push(json);
+} catch (e) {
+  console.error('Failed to gen module');
+}
 }
 
 writeFileSync('../out/modules.json', JSON.stringify(jsons));
