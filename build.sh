@@ -29,7 +29,7 @@ cd ..
 cp _headers out/_headers
 
 # Copy latest inject.js to out (for untethered)
-wget --no-cache https://raw.githubusercontent.com/GooseMod/GooseMod/master/dist/index.js -O out/inject.js
+wget --no-cache https://github.com/GooseMod/GooseMod/releases/download/dev/index.js -O out/inject.js
 
 cat out/inject.js | grep "this.versionHash=\".*?\"" -P -o | cut -d "\"" -f 2 > out/injectVersion/hash.txt
 cat out/inject.js | grep "this.version=\".*?\"" -P -o | cut -d "\"" -f 2 > out/injectVersion/version.txt
