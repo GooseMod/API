@@ -4,8 +4,8 @@
 # rm -rf build
 # mkdir build
 
-# rm -rf out
-# mkdir out
+rm -rf out
+mkdir out
 
 # mkdir out/untethered
 mkdir out/injectVersion
