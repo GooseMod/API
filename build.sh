@@ -26,7 +26,7 @@ mkdir out/injectVersion
 # Copy _headers
 # cd ..
 
-cp _headers out/_headers
+cp CNAME out/CNAME
 
 # Copy latest inject.js to out (for untethered)
 wget --no-cache https://raw.githubusercontent.com/GooseMod/GooseMod/dist-prod/index.js -O out/inject.js
